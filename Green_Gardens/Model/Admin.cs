@@ -2,7 +2,7 @@
 
 namespace Green_Gardens.Model
 {
-    public class Customer //will create the columns for the customer table
+    public class Admin
     {
         [Key]
         public Guid Id { get; set; }
@@ -22,10 +22,6 @@ namespace Green_Gardens.Model
         [MaxLength(100)]
         [Required]
         public string Password { get; set; }
-
-
-        [Required]
-        public int LoyaltyPoints { get; set; }
 
     }
 }
