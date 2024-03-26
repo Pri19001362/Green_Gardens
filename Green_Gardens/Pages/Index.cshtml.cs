@@ -21,10 +21,16 @@ namespace Green_Gardens.Pages
 
         //stores the list of tasks
         public List<Customer> Customer { get; set; }
+        public List<Admin> Admin { get; set; }
+        public List<Product> Product { get; set; }
+        public List<Order> Order { get; set; }
 
         public void OnGet()
         {
             Customer = _dbConnection.Customer.ToList();
+            Admin = _dbConnection.Admin.ToList();
+            Product = _dbConnection.Product.ToList();
+            Order = _dbConnection.Order.ToList();
         }
     }
 }

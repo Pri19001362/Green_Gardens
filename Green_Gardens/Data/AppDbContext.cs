@@ -7,6 +7,9 @@ namespace Green_Gardens.Data
     {
         //DbSet represents the collection of all entities in the context, or that can be queried from the databse, of a given type.
         public DbSet<Customer> Customer { get; set; }
+        public DbSet<Admin> Admin { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Order> Order { get; set; }
 
         //Constructor for the AppDbContext class
 

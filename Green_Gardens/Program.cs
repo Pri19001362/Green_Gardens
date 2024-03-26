@@ -14,6 +14,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(connectionString));
 //Register a singleton instance of product
 builder.Services.AddSingleton<Customer>();
+builder.Services.AddSingleton<Admin>();
+builder.Services.AddSingleton<Product>();
+builder.Services.AddSingleton<Order>();
 
 
 // Register services for MVC Controllers and Views. This is essential for applications using the MVC architecture.
