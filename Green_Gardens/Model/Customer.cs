@@ -2,7 +2,7 @@
 
 namespace Green_Gardens.Model
 {
-    public class Customer
+    public class Customer //will create the columns for the customer table
     {
         [Key]
         public int Id { get; set; }
