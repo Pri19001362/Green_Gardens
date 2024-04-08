@@ -9,6 +9,9 @@ namespace Green_Gardens.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        // Public property for a list of ProductModel items. This stores the list of products.
+        public List<Product> Items { get; set; }
+
         private readonly AppDbContext _dbConnection;
 
         //Add instance of AppDbContext
