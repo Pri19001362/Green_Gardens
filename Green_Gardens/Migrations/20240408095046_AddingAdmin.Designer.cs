@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Green_Gardens.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240326125211_AddingAdmin")]
+    [Migration("20240408095046_AddingAdmin")]
     partial class AddingAdmin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
