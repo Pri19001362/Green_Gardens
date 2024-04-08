@@ -116,7 +116,6 @@ namespace Green_Gardens.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("ExpectedStock")
-                        .HasMaxLength(100)
                         .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
@@ -132,7 +131,6 @@ namespace Green_Gardens.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Stock")
-                        .HasMaxLength(100)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
