@@ -1,0 +1,71 @@
+﻿@page
+@model Green_Gardens.Pages.CreateModel
+@{
+}
+<h1>Add Item</h1>
+
+<div class="container border p-5">
+    <form method="post">
+        <!-- Name Field -->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Product Name:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Item.Name" class="form-control" />
+
+            </div>
+        </div>
+
+        <!-- Description Field -->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Description:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Item.Description" class="form-control" />
+
+            </div>
+        </div>
+
+        <!-- Price Field -->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Price:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Item.Price" class="form-control" />
+
+            </div>
+        </div>
+
+        <!-- Current Stock Field -->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Current Stock:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Item.Stock" class="form-control" />
+
+            </div>
+        </div>
+
+        <!-- Expected Stock Field -->
+        <div class="form-group row">
+            <div class="col-4">
+                <label>Expected Stock:</label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Item.ExpectedStock" class="form-control" />
+
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-block btn-secondary">Add Task</button>
+            </div>
+        </div>
+    </form>
+</div>
