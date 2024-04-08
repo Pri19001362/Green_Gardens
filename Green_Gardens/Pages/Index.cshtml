@@ -9,3 +9,34 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Completed</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Product)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price.ToString()</td>
+                <td>@item.Stock.ToString()</td>
+                <td>@item.ExpectedStock.ToString()</td>
+
+                @* <td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    }
+                </td> *@
+                
+            </tr>
+        }
+    </tbody>
+</table>
