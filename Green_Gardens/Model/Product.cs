@@ -20,11 +20,11 @@ namespace Green_Gardens.Model
 
         public string ImagePath { get; set; }
 
-        [MaxLength(100)]
+        
         [Required]
         public int Stock { get; set; }
 
-        [MaxLength(100)]
+        
         [Required]
         public int ExpectedStock { get; set; }
     }
