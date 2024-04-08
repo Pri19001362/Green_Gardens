@@ -9,7 +9,7 @@ namespace Green_Gardens.Pages
     {
         private readonly AppDbContext _dbConnection;
 
-        public Product Item { get; set; }
+        public Product Products { get; set; }
 
         public CreateModel(AppDbContext context)
         {
@@ -18,19 +18,15 @@ namespace Green_Gardens.Pages
 
         public void OnGet()
         {
-            Item = new Product(); // Initialize Item
+            Products = new Product(); // Initialize Item
         }
 
-        public IActionResult OnPost(Product Item)
+        public IActionResult OnPost(Product Products)
         {
-            if (!ModelState.IsValid)
-            {
-                // Log validation errors or set a breakpoint here to inspect ModelState
-                return Page();
-            }
+            
 
-            // Set a breakpoint here to inspect the 'Item' object
-            _dbConnection.Product.Add(Item);
+            // Set a breakpoint here to inspect the 'Product' object
+            _dbConnection.Product.Add(Products);
             _dbConnection.SaveChanges();
 
             return RedirectToPage("Index");
