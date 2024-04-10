@@ -1,4 +1,46 @@
-﻿@page
+﻿@page "{id:int}"
 @model Green_Gardens.Pages.EditModel
 
 <h1>Edit Item</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Item.Id" />
+
+    <!-- Name Field -->
+    <div class="form-group">
+        <label>Product Name:</label>
+        <input asp-for="Item.Name" class="form-control" />
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+        <label>Product Description:</label>
+        <input asp-for="Item.Description" class="form-control" />
+    </div>
+
+    <!-- Price Field -->
+    <div class="form-group">
+        <label>Product Price:</label>
+        <input asp-for="Item.Price" class="form-control" />
+    </div>
+
+    <!-- Image Field -->
+    <div class="form-group">
+        <label>Product Image:</label>
+        <input asp-for="Item.ImagePath" class="form-control" />
+    </div>
+
+    <!-- Current Stock Field -->
+    <div class="form-group">
+        <label>Current Stock:</label>
+        <input type="number" asp-for="Item.Stock" class="form-control" />
+    </div>
+
+    <!-- Expected Stock Field -->
+    <div class="form-group">
+        <label>Expected Stock:</label>
+        <input type="number" asp-for="Item.ExpectedStock" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
