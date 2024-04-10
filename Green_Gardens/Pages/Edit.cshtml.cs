@@ -17,7 +17,7 @@ namespace Green_Gardens.Pages
             _dbConnection = context;
         }
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(Guid id)
         {
             Product = await _dbConnection.Product.FindAsync(id);
 
