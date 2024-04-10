@@ -31,10 +31,7 @@ namespace Green_Gardens.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+          
 
             var itemToUpdate = await _dbConnection.Product.FindAsync(Item.Id);
 
