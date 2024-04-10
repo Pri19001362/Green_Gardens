@@ -19,6 +19,7 @@
             <th>Price</th>
             <th>Current Stock</th>
             <th>Expected Stock</th>
+            <th>Edit/Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -31,8 +32,10 @@
                 <td>@item.Stock.ToString()</td>
                 <td>@item.ExpectedStock.ToString()</td>
 
-                <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                <td>
+                    <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
 
                 @* <td>
                     @if (User.Identity.IsAuthenticated)
