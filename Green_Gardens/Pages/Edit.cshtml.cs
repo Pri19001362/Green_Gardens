@@ -10,7 +10,7 @@ namespace Green_Gardens.Pages
         private readonly AppDbContext _dbConnection;
 
         [BindProperty]
-        public Product Item { get; set; }
+        public Product Product { get; set; }
 
         public EditModel(AppDbContext context)
         {
@@ -19,9 +19,9 @@ namespace Green_Gardens.Pages
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            Item = await _dbConnection.Product.FindAsync(id);
+            Product = await _dbConnection.Product.FindAsync(id);
 
-            if (Item == null)
+            if (Product == null)
             {
                 return NotFound();
             }
@@ -33,7 +33,7 @@ namespace Green_Gardens.Pages
         {
           
 
-            var itemToUpdate = await _dbConnection.Product.FindAsync(Item.Id);
+            var itemToUpdate = await _dbConnection.Product.FindAsync(Product.Id);
 
             if (itemToUpdate == null)
             {
@@ -41,12 +41,12 @@ namespace Green_Gardens.Pages
             }
 
             // Update the properties of the item
-            itemToUpdate.Name = Item.Name;
-            itemToUpdate.Description = Item.Description;
-            itemToUpdate.Price = Item.Price;
-            itemToUpdate.ImagePath = Item.ImagePath;
-            itemToUpdate.Stock = Item.Stock;
-            itemToUpdate.ExpectedStock = Item.ExpectedStock;
+            itemToUpdate.Name = Product.Name;
+            itemToUpdate.Description = Product.Description;
+            itemToUpdate.Price = Product.Price;
+            itemToUpdate.ImagePath = Product.ImagePath;
+            itemToUpdate.Stock = Product.Stock;
+            itemToUpdate.ExpectedStock = Product.ExpectedStock;
 
             // Save the changes
             await _dbConnection.SaveChangesAsync();
