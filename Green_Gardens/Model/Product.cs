@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Green_Gardens.Model
 {
@@ -18,6 +19,7 @@ namespace Green_Gardens.Model
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        [AllowNull]
         public string ImagePath { get; set; }
 
         

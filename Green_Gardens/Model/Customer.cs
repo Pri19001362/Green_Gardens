@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Green_Gardens.Model
 {
@@ -23,8 +24,7 @@ namespace Green_Gardens.Model
         [Required]
         public string Password { get; set; }
 
-
-        [Required]
+        [AllowNull]
         public int LoyaltyPoints { get; set; }
 
         [Required]

@@ -12,7 +12,7 @@ namespace Green_Gardens.Pages
         private readonly AppDbContext _context; // Database context for accessing the database
 
         [BindProperty]
-        public Customer User { get; set; } // User model bound to the form input
+        public Customer Customer { get; set; } // Customer model bound to the form input
 
         // Constructor injecting the database context
         public RegisterModel(AppDbContext context)
@@ -33,8 +33,8 @@ namespace Green_Gardens.Pages
                 return Page(); // Return to the page if validation fails
             }
 
-            User.Password = HashPassword(User.Password); // Hash the password before saving
-            _context.Customer.Add(User); // Add the new user to the database
+            Customer.Password = HashPassword(Customer.Password); // Hash the password before saving
+            _context.Customer.Add(Customer); // Add the new user to the database
             _context.SaveChanges(); // Commit the changes to the database
             return RedirectToPage("Login"); // Redirect to the login page on successful registration
         }
