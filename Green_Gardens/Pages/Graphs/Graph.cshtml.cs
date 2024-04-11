@@ -1,7 +1,9 @@
-using Green_Gardens.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
+using Green_Gardens.Data;
+using Green_Gardens.Model;
+
 
 namespace Green_Gardens.Pages.Graphs
 {
@@ -21,7 +23,7 @@ namespace Green_Gardens.Pages.Graphs
         public void OnGet()
         {
             var items = _dbConnection.Product.ToList();
-            TasksJson = JsonSerializer.Serialize(items.Select(t => new { Stock = t.Stock, t.Price }));
+            TasksJson = JsonSerializer.Serialize(items.Select(t => new { Stock = t.Stock.ToString(), Price = t.Price.ToString() }));
 
         }
     }
