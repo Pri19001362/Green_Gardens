@@ -27,5 +27,8 @@ namespace Green_Gardens.Model
         [Required]
         public int LoyaltyPoints { get; set; }
 
+        [Required]
+        public bool IsAdmin { get; set; }
+
     }
 }
