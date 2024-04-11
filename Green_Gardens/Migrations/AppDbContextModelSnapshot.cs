@@ -46,7 +46,7 @@ namespace Green_Gardens.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("LoyaltyPoints")
+                    b.Property<int?>("LoyaltyPoints")
                         .HasColumnType("int");
 
                     b.Property<string>("Password")
@@ -91,7 +91,6 @@ namespace Green_Gardens.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

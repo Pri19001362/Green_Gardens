@@ -25,7 +25,7 @@ namespace Green_Gardens.Model
         public string Password { get; set; }
 
         [AllowNull]
-        public int LoyaltyPoints { get; set; }
+        public int? LoyaltyPoints { get; set; }
 
         [Required]
         public bool IsAdmin { get; set; }

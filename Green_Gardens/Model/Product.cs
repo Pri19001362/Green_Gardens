@@ -20,7 +20,7 @@ namespace Green_Gardens.Model
         public decimal Price { get; set; }
 
         [AllowNull]
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
 
         
         [Required]
