@@ -9,6 +9,13 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
     <a asp-page="Create" class="btn btn-primary"> Add Product</a>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form method="get" asp-page="/Logout">
+            <button type="submit" class="btn btn-warning">Logout</button>
+        </form>
+    }
 </div>
 
 <table class="table">
