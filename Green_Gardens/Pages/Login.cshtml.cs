@@ -44,6 +44,7 @@ namespace Green_Gardens.Pages
                 {
                     new Claim(ClaimTypes.Name, user.FirstName),
                     new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User") // Add admin role to claims
                     // Add more claims as needed
                 };
 
