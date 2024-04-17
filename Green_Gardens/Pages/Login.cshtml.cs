@@ -44,7 +44,7 @@ namespace Green_Gardens.Pages
                 {
                     new Claim(ClaimTypes.Name, user.FirstName),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User") // Add admin role to claims
+                    new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User"), // Add admin role to claims
                     // Add more claims as needed
                 };
 
@@ -64,8 +64,15 @@ namespace Green_Gardens.Pages
 
         private bool VerifyPassword(string providedPassword, string storedHash)
         {
-            // Implement password verification logic here
-            return true; // Placeholder
+            if(providedPassword == storedHash)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }
