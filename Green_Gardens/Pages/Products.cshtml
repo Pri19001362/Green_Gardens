@@ -1,10 +1,39 @@
 ﻿@page
 @model Green_Gardens.Pages.ProductsModel
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Shop";
 }
 
-<h2>Products</h2>
+<table class="text-center">
+    <tr>
+        <th><h2 class="display-4">Shop</h2></th>
+        <th>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <form method="get" asp-page="/Register">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            }
+        </th>
+        <th>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <form method="get" asp-page="/Login">
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            }
+        </th>
+        <th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form method="get" asp-page="/Logout">
+                    <button type="submit" class="btn btn-warning">Logout</button>
+                </form>
+            }
+        </th>
+    </tr>
+
+</table>
 
 <table class="table">
     <thead>
