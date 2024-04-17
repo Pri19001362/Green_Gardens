@@ -29,16 +29,19 @@
     </thead>
     <tbody>
             <tr>
-            <td><img src="" alt="Product Image" style="width:100px"></td>
-
                 <td>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                        <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                    }
+                    <img src="~/images/shop/shop.png" alt="Shop" style="width:100px">
                 </td>
-                
             </tr>
+                
     </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <form method="get" asp-page="/Products">
+                    <button type="submit" class="btn btn-primary">Product Page</button>
+                </form>
+            </td>
+        </tr>
+    </tfoot>
 </table>
