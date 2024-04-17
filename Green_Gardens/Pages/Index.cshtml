@@ -8,10 +8,13 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome To Green Gardens</h1>
-    
-    <form method="get" asp-page="/Login">
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <form method="get" asp-page="/Login">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    }
 
     @if (User.Identity.IsAuthenticated)
     {
@@ -21,16 +24,16 @@
     }
 </div>
 
-<table class="table">
+<table class="table;" style="text-align:center; width:100%;">
     <thead>
         <tr>
-            <th>Check out our shop</th>
+            <th style="padding-top:20px;">Check out our shop</th>
         </tr>
     </thead>
     <tbody>
             <tr>
                 <td>
-                    <img src="~/images/shop/shop.png" alt="Shop" style="width:100px">
+                <img src="~/images/shop/shop.png" alt="Shop" style="width:400px;">
                 </td>
             </tr>
                 
