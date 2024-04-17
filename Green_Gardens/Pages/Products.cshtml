@@ -39,10 +39,11 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
             <th>Image</th>
+            <th>Description</th>
             <th>Stock</th>
+            <th>Price</th>
+            <th>Buy</th>
         </tr>
     </thead>
     <tbody>
@@ -50,12 +51,15 @@
         {
             <tr>
                 <td>@product.Name</td>
-                <td>@product.Price</td>
-                <td>@product.Description</td>
                 <td>
-                    <img src="@product.ImagePath" alt="Product Image" style="width:100px">
+                    <img src="@product.ImagePath" alt="Product Image" style="width:200px">
                 </td>
+                <td>@product.Description</td>
                 <td>@product.Stock</td>
+                <td>@product.Price</td>
+                <td>
+                    <button type="submit" class="btn btn-danger">Buy</button>
+                </td>
             </tr>
         }
 
