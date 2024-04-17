@@ -24,9 +24,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin">Admin</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Admin">Admin</a>
+                            </li>
+                        }
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
@@ -40,9 +43,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Graphs/Graph">Graph</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Graph">Graphs</a>
+                            </li>
+                        }
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Products">Shop</a>
