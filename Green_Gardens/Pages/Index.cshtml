@@ -7,12 +7,11 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        <a asp-page="Create" class="btn btn-primary"> Add Item</a>
-    }
+    <h1 class="display-4">Welcome To Green Gardens</h1>
+    
+    <form method="get" asp-page="/Login">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
 
     @if (User.Identity.IsAuthenticated)
     {
