@@ -1,7 +1,7 @@
 ﻿@page
 @model Green_Gardens.Pages.Graphs.GraphModel
 @{
-    ViewData["Title"] = "Stock Graph";
+    ViewData["Title"] = "Product Stock Graph";
 }
 
 <h2>Stock to Price Graph</h2>
@@ -18,10 +18,10 @@
 		var tasksGraph = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: tasksData.map(t => new Stock(t.Stock).toLocaleStockString()),
+				labels: tasksData.map(t => new String(t.Name).toString()),
 				datasets: [{
-					label: 'Product Price',
-					data: tasksData.map(t => t.Price ? 1 : 0),
+					label: 'Current Stock',
+					data: tasksData.map(t => t.Stock),
 					backgroundColor: 'rgba(54, 162, 235, 0.2)',
 					borderColor: 'rgba(54, 162, 235, 1)',
 					borderWidth: 1
