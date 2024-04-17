@@ -24,23 +24,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Current Stock</th>
-            <th>Expected Stock</th>
-            <th>Edit/Delete</th>
+            <th>Check out our shop</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Product)
-        {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>@item.Price.ToString()</td>
-                <td>@item.Stock.ToString()</td>
-                <td>@item.ExpectedStock.ToString()</td>
+            <td><img src="" alt="Product Image" style="width:100px"></td>
 
                 <td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -51,6 +40,5 @@
                 </td>
                 
             </tr>
-        }
     </tbody>
 </table>
