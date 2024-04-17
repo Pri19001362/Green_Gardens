@@ -12,7 +12,7 @@ namespace Green_Gardens.Pages.Graphs
 
         private readonly AppDbContext _dbConnection;
 
-        public string TasksJson { get; set; }
+        public string ProductJson { get; set; }
 
         public GraphModel(AppDbContext db)
         {
@@ -23,7 +23,7 @@ namespace Green_Gardens.Pages.Graphs
         public void OnGet()
         {
             var items = _dbConnection.Product.ToList();
-            TasksJson = JsonSerializer.Serialize(items.Select(t => new { Stock = t.Stock.ToString(), Price = t.Price.ToString() }));
+            ProductJson = JsonSerializer.Serialize(items.Select(t => new { t.Stock, t.Price }));
 
         }
     }

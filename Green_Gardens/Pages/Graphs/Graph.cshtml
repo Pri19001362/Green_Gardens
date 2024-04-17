@@ -14,11 +14,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
 		var ctx = document.getElementById('stockGraph').getContext('2d');
-		var tasksData = @Html.Raw(Model.TasksJson);
+		var tasksData = @Html.Raw(Model.ProductJson);
 		var tasksGraph = new Chart(ctx, {
 			type: 'bar',
 			data: {
-				labels: tasksData.map(t => new Stock(t.Stock.toLocaleStockString()),
+				labels: tasksData.map(t => new Stock(t.Stock).toLocaleStockString()),
 				datasets: [{
 					label: 'Product Price',
 					data: tasksData.map(t => t.Price ? 1 : 0),

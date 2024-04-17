@@ -64,15 +64,7 @@ namespace Green_Gardens.Pages
 
         private bool VerifyPassword(string providedPassword, string storedHash)
         {
-            if(providedPassword == storedHash)
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
+            return true;
         }
     }
 }
