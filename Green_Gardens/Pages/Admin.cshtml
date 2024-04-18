@@ -79,3 +79,32 @@
         }
     </tbody>
 </table>
+
+<div>
+    <h3>Products below current stock</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Current Stock</th>
+            <th>Expected Stock</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.Product)
+        {
+            @if (@item.Stock < @item.ExpectedStock)
+            {
+                <tr>
+                <td>@item.Name</td>
+                <td>@item.Stock.ToString()</td>
+                <td>@item.ExpectedStock.ToString()</td>
+
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+</div>
