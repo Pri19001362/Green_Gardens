@@ -29,7 +29,7 @@ namespace Green_Gardens.Pages
             _dbConnection.Product.Add(Products);
             _dbConnection.SaveChanges();
 
-            return RedirectToPage("Index");
+            return RedirectToPage("Admin");
         }
     }
 }
