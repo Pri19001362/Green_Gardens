@@ -51,7 +51,7 @@ namespace Green_Gardens.Pages
             // Save the changes
             await _dbConnection.SaveChangesAsync();
 
-            return RedirectToPage("Index");
+            return RedirectToPage("Admin");
         }
     }
 }

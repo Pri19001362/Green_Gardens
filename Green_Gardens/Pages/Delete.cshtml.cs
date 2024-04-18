@@ -29,7 +29,7 @@ namespace Green_Gardens.Pages
             {
                 _dbConnection.Product.Remove(itemToDelete);
                 await _dbConnection.SaveChangesAsync();
-                return RedirectToPage("Index");
+                return RedirectToPage("Admin");
             }
             else
             {
