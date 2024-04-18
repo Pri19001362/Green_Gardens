@@ -22,6 +22,10 @@
     }
 </div>
 
+<!--Products table-->
+<div>
+    <h2>Products</h2>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -108,3 +112,50 @@
 
 </table>
 </div>
+
+
+<div>
+    <h3>Customers</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Loyalty Points</th>
+            <th>Admin</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            @foreach (var customer in Model.Customer)
+            {
+                @if(@customer.IsAdmin == true)
+                {
+                    <tr style="background-color: green;">
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.LoyaltyPoints</td>
+                        <td>@customer.IsAdmin</td>
+                    </tr>
+
+                }
+                else
+                {
+                    <tr>
+                        <td>@customer.FirstName</td>
+                        <td>@customer.LastName</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.LoyaltyPoints</td>
+                        <td>@customer.IsAdmin</td>
+                    </tr>
+                }
+
+            }
+    </tbody>
+
+</table>
+</div>
+
+

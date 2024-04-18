@@ -11,6 +11,7 @@ namespace Green_Gardens.Pages
 
         // Public property for a list of ProductModel items. This stores the list of products.
         public List<Product> Products { get; set; }
+        public List<Customer> Customers { get; set; }
 
         private readonly AppDbContext _dbConnection;
 
