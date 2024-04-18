@@ -4,10 +4,16 @@
     ViewData["Title"] = "Product Stock Graph";
 }
 
-<h2>Current stock Graph</h2>
+<h2>Graphs</h2>
 
 <div>
+	<h3>Product and stock quantity</h3>
 	<canvas id="stockGraph"></canvas>
+</div>
+
+<div>
+	<h3>Price against stock quantity</h3>
+	<canvas id="ExpectedStock"></canvas>
 </div>
 
 @section Scripts {
@@ -36,4 +42,33 @@
 			}
 		});
 	</script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		var ctx = document.getElementById('ExpectedStock').getContext('2d');
+		var tasksData = @Html.Raw(Model.ProductJson);
+		var tasksGraph = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: tasksData.map(t => new String(t.Name).toString()),
+				datasets: [{
+					label: 'Price',
+					data: tasksData.map(t => t.Price),
+					backgroundColor: 'rgba(54, 162, 235, 0.2)',
+					borderColor: 'rgba(54, 162, 235, 1)',
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+	</script>
+
+
 }

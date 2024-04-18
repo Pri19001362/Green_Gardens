@@ -23,7 +23,7 @@ namespace Green_Gardens.Pages.Graphs
         public void OnGet()
         {
             var items = _dbConnection.Product.ToList();
-            ProductJson = JsonSerializer.Serialize(items.Select(t => new { t.Name, t.Stock }));
+            ProductJson = JsonSerializer.Serialize(items.Select(t => new { t.Name, t.Stock, t.ExpectedStock, t.Price }));
 
         }
     }
