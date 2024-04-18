@@ -7,7 +7,12 @@
 <h2>Graphs</h2>
 
 <div>
-	<h3>Product and stock quantity</h3>
+	<h3>Product and Stock</h3>
+	<canvas id="Stock"></canvas>
+</div>
+
+<div>
+	<h3>Expected stock quantity</h3>
 	<canvas id="stockGraph"></canvas>
 </div>
 
@@ -84,6 +89,48 @@
 			},
 			options: {
 				scales: {
+				}
+			}
+		});
+	</script>
+
+	<!--New Graph-->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+
+		var ctx = document.getElementById('Stock').getContext('2d');
+		var tasksData = @Html.Raw(Model.ProductJson);
+		var tasksGraph = new Chart(ctx, {
+			type: 'polarArea',
+			data: {
+				labels: tasksData.map(t => t.Name),
+				datasets: [
+					{
+					label: 'Stock',
+					data: tasksData.map(t => t.Stock),
+					backgroundColor: [
+						'rgba(255, 0, 0, 0.3)',
+						'rgba(0, 255, 0, 0.3)',
+						'rgba(255, 255, 255, 0.3)',
+						'rgba(0, 0, 255, 0.3)'
+					],
+					borderColor: 'rgba(0, 0, 0, 0.5)',
+					borderWidth: 1
+				},
+
+				]
+			},
+			options: {
+				scales: {
+					r: {
+        pointLabels: {
+          display: true,
+          centerPointLabels: true,
+          font: {
+            size: 18,
+          }
+        }
+      }
 				}
 			}
 		});
