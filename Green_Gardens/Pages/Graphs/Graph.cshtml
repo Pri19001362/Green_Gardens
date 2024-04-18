@@ -17,6 +17,7 @@
 </div>
 
 
+
 @section Scripts {
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
@@ -26,13 +27,22 @@
 			type: 'bar',
 			data: {
 				labels: tasksData.map(t => new String(t.Name).toString()),
-				datasets: [{
+				datasets: [
+					{
 					label: 'Current Stock',
 					data: tasksData.map(t => t.Stock),
-					backgroundColor: 'rgba(54, 162, 235, 0.2)',
-					borderColor: 'rgba(54, 162, 235, 1)',
+					backgroundColor: 'rgba(0, 255, 0, 0.5)',
+					borderColor: 'rgba(0, 255, 0, 1)',
 					borderWidth: 1
-				}]
+				},
+				{
+					label: 'Expected Stock',
+					data: tasksData.map(t => t.ExpectedStock),
+					backgroundColor: 'rgba(255, 0, 0, 0.5)',
+					borderColor: 'rgba(255, 0, 0, 1)',
+					borderWidth: 1
+				}
+				]
 			},
 			options: {
 				scales: {
@@ -52,22 +62,28 @@
 		var ctx = document.getElementById('ExpectedStock').getContext('2d');
 		var tasksData = @Html.Raw(Model.ProductJson);
 		var tasksGraph = new Chart(ctx, {
-			type: 'bar',
+			type: 'radar',
 			data: {
-				labels: tasksData.map(t => new String(t.Name).toString()),
-				datasets: [{
+				labels: tasksData.map(t => t.Name),
+				datasets: [
+					{
 					label: 'Price',
 					data: tasksData.map(t => t.Price),
-					backgroundColor: 'rgba(54, 162, 235, 0.2)',
+					backgroundColor: 'rgba(54, 162, 235, 0.5)',
 					borderColor: 'rgba(54, 162, 235, 1)',
 					borderWidth: 1
-				}]
+				},
+				{
+					label: 'Stock',
+					data: tasksData.map(t => t.Stock),
+					backgroundColor: 'rgba(249, 82, 16, 0.5)',
+					borderColor: 'rgba(249, 82, 16, 1)',
+					borderWidth: 1
+				}
+				]
 			},
 			options: {
 				scales: {
-					y: {
-						beginAtZero: true
-					}
 				}
 			}
 		});
