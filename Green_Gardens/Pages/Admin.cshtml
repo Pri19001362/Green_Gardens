@@ -36,7 +36,29 @@
     <tbody>
         @foreach (var item in Model.Product)
         {
-            <tr>
+
+            @if (@item.Stock < @item.ExpectedStock)
+            {
+                <tr style="background-color:red;">
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price.ToString()</td>
+                <td>@item.Stock.ToString()</td>
+                <td>@item.ExpectedStock.ToString()</td>
+
+                <td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    }
+                </td>
+
+                </tr>
+            }
+            else
+            {
+                <tr>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td>@item.Price.ToString()</td>
@@ -52,6 +74,8 @@
                 </td>
 
             </tr>
+            }
+            
         }
     </tbody>
 </table>
