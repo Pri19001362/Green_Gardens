@@ -1,4 +1,37 @@
 ﻿@page
 @model Green_Gardens.Pages.AccountModel
 @{
+    ViewData["Title"] = "Account";
 }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th><h2 class="display-4">Account</h2></th>
+        </tr>
+
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Loyalty Points</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        
+        @foreach (var customer in Model.Customer.Where(n => n.Email == "Sam@email.com" ) )
+        {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Email</td>
+                <td>@customer.LoyaltyPoints</td>
+            </tr>
+        }
+
+
+
+
+    </tbody>
+</table>
