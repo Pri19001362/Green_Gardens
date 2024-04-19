@@ -1,0 +1,14 @@
+﻿@page "{id:guid}"
+@model Green_Gardens.Pages.CustomerDeleteModel
+
+
+<h2>Confirm Deletion</h2>
+<p>Are you sure you want to delete this item?</p>
+<p><strong>Name:</strong> @Model.Customer.FirstName</p>
+<p><strong>Email:</strong> @Model.Customer.Email</p>
+
+<form method="post">
+    <input type="hidden" asp-for="Customer.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

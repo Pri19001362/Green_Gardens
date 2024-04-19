@@ -138,6 +138,15 @@
                         <td>@customer.Email</td>
                         <td>@customer.LoyaltyPoints</td>
                         <td>@customer.IsAdmin</td>
+
+                        <td>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a asp-page="/CustomerEdit" asp-route-id="@customer.Id" class="btn btn-primary">Edit</a>
+                                <a asp-page="/CustomerDelete" asp-route-id="@customer.Id" class="btn btn-danger">Delete</a>
+                            }
+                        </td>
+
                     </tr>
 
                 }
@@ -149,6 +158,14 @@
                         <td>@customer.Email</td>
                         <td>@customer.LoyaltyPoints</td>
                         <td>@customer.IsAdmin</td>
+
+                        <td>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a asp-page="/CustomerEdit" asp-route-id="@customer.Id" class="btn btn-primary">Edit</a>
+                                <a asp-page="/CustomerDelete" asp-route-id="@customer.Id" class="btn btn-danger">Delete</a>
+                            }
+                        </td>
                     </tr>
                 }
 

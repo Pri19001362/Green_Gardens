@@ -1,0 +1,37 @@
+﻿@page "{id:guid}"
+@model Green_Gardens.Pages.CustomerEditModel
+
+
+
+<h1>Edit Customer</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Customer.Id" />
+
+    <!-- First Name Field -->
+    <div class="form-group">
+        <label>Customer Name:</label>
+        <input asp-for="Customer.FirstName" class="form-control" />
+    </div>
+
+    <!-- Last Name Field -->
+    <div class="form-group">
+        <label>Customer Last Name:</label>
+        <input asp-for="Customer.LastName" class="form-control" />
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+        <label>Customer Email:</label>
+        <input type="email" asp-for="Customer.Email" class="form-control" />
+    </div>
+
+    <!-- Loyalty Points Field -->
+    <div class="form-group">
+        <label>Loyalty Points:</label>
+        <input type="number" asp-for="Customer.LoyaltyPoints" class="form-control" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
