@@ -31,6 +31,14 @@
                 </form>
             }
         </th>
+        <th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form method="get" asp-page="/Account">
+                    <button type="submit" class="btn btn-warning">View Account</button>
+                </form>
+            }
+        </th>
     </tr>
 
 </table>
