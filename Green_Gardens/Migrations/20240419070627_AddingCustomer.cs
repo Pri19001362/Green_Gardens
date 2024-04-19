@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Green_Gardens.Migrations
 {
-    public partial class AddingProduct : Migration
+    public partial class AddingCustomer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,7 @@ namespace Green_Gardens.Migrations
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    LoyaltyPoints = table.Column<int>(type: "int", nullable: true),
+                    LoyaltyPoints = table.Column<int>(type: "int", nullable: false),
                     IsAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

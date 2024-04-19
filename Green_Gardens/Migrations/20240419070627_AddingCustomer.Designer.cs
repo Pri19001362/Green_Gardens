@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Green_Gardens.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240416083750_AddingProduct")]
-    partial class AddingProduct
+    [Migration("20240419070627_AddingCustomer")]
+    partial class AddingCustomer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,7 @@ namespace Green_Gardens.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("LoyaltyPoints")
+                    b.Property<int>("LoyaltyPoints")
                         .HasColumnType("int");
 
                     b.Property<string>("Password")
