@@ -2,6 +2,8 @@ using Green_Gardens.Data;
 using Green_Gardens.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Green_Gardens.Pages
 {
