@@ -16,6 +16,11 @@
 	<canvas id="ExpectedStock"></canvas>
 </div>
 
+<div>
+	<h3>Customer Loyalty Points</h3>
+	<canvas id="LoyaltyPoints"></canvas>
+</div>
+
 
 
 @section Scripts {
@@ -84,6 +89,41 @@
 			},
 			options: {
 				scales: {
+				}
+			}
+		});
+	</script>
+
+	<!--New Graph-->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		var ctx = document.getElementById('LoyaltyPoints').getContext('2d');
+		var tasksData = @Html.Raw(Model.CustomerJson);
+		var tasksGraph = new Chart(ctx, {
+			type: 'polarArea',
+			data: {
+				labels: tasksData.map(t => t.FirstName),
+				datasets: [
+					{
+						label: 'Loyalty Points',
+						data: tasksData.map(t => t.LoyaltyPoints),
+						backgroundColor: 'rgba(54, 162, 235, 0.5)',
+						borderColor: 'rgba(54, 162, 235, 1)',
+						borderWidth: 1
+					}
+				]
+			},
+			options: {
+				scales: {
+					r: {
+						pointLabels: {
+							display: true,
+							centerPointLabels: true,
+							font: {
+								size: 18
+							}
+						}
+					}
 				}
 			}
 		});
