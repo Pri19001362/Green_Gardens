@@ -1,0 +1,87 @@
+﻿@page
+@model Green_Gardens.Pages.RedeemModel
+@{
+    ViewData["Title"] = "Redeem page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+        <div class="text-center">
+    <h1 class="display-4">Welcome To The Redeem Page</h1>
+    <h3 style="padding-top:20px; padding-bottom:20px;">Use your loyalty points to redeem products</h3>
+</div>
+
+<table class="table;" style="text-align:center; width:100%;">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Loyalty Points Needed</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>Amazon £15 Gift Card</td>
+                <td>Use to buy items on Amazon</td>
+                <td>
+                    <img src="~/images/Redeem" alt="Redeem Product Image" style="width:200px">
+                </td>
+                <td>150</td>
+                <td>
+                    <button type="submit" class="btn btn-danger">Redeem</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Tesco £5 Gift Card</td>
+                <td>Use to buy items at Tesco</td>
+                <td>
+                    <img src="~/images/Redeem" alt="Redeem Product Image" style="width:200px">
+                </td>
+                <td>50</td>
+                <td>
+                    <button type="submit" class="btn btn-danger">Redeem</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Garden Apron</td>
+                <td>Fun to wear</td>
+                <td>
+                    <img src="~/images/Redeem" alt="Redeem Product Image" style="width:200px">
+                </td>
+                <td>25</td>
+                <td>
+                    <button type="submit" class="btn btn-danger">Redeem</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Garden Gloves</td>
+                <td>Fun to wear</td>
+                <td>
+                    <img src="~/images/Redeem" alt="Redeem Product Image" style="width:200px">
+                </td>
+                <td>15</td>
+                <td>
+                    <button type="submit" class="btn btn-danger">Redeem</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>PS5</td>
+                <td>Play Games</td>
+                <td>
+                    <img src="~/images/Redeem" alt="Redeem Product Image" style="width:200px">
+                </td>
+                <td>100,000</td>
+                <td>
+                    <button type="submit" class="btn btn-danger">Redeem</button>
+                </td>
+            </tr>
+                
+    </tbody>
+</table>
+}
+
