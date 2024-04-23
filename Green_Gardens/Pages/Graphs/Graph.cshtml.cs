@@ -12,6 +12,10 @@ namespace Green_Gardens.Pages.Graphs
 
         private readonly AppDbContext _dbConnection;
 
+        public List<Product> Product { get; set; }
+        public List<Customer> Customer { get; set; }
+        public List<Order> Order { get; set; }
+
         public string ProductJson { get; set; }
         public string CustomerJson { get; set; }
 
@@ -29,6 +33,9 @@ namespace Green_Gardens.Pages.Graphs
             var customer = _dbConnection.Customer.ToList();
             CustomerJson = JsonSerializer.Serialize(customer.Select(c => new { c.FirstName, c.LastName, c.LoyaltyPoints }));
 
+            Customer = _dbConnection.Customer.ToList();
+            Product = _dbConnection.Product.ToList();
+            Order = _dbConnection.Order.ToList();
         }
     }
 }
