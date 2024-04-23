@@ -46,7 +46,9 @@ namespace Green_Gardens.Pages
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User"), // Add admin role to claims
                     // Add more claims as needed
-                };
+                 
+
+            };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties();
@@ -55,6 +57,9 @@ namespace Green_Gardens.Pages
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity),
                     authProperties);
+
+                // Store email in session
+                HttpContext.Session.SetString("UserEmail", user.Email);
 
                 return RedirectToPage("Index"); // Redirect to the Index page after successful login
             }

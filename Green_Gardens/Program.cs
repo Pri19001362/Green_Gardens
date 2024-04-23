@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Green_Gardens.Model;
 using Green_Gardens.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +19,15 @@ builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(connec
 builder.Services.AddSingleton<Customer>();
 builder.Services.AddSingleton<Product>();
 builder.Services.AddSingleton<Order>();
+// Add services to the container.
+builder.Services.AddRazorPages();
+builder.Services.AddDistributedMemoryCache();  // Necessary for session state
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 
 // Register services for MVC Controllers and Views. This is essential for applications using the MVC architecture.
@@ -55,5 +67,5 @@ app.UseAuthentication(); // Ensure this call is before UseAuthorization
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+app.UseSession();
 app.Run();
