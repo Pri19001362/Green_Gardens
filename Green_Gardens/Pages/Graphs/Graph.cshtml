@@ -146,7 +146,7 @@
         </tr>
     </thead>
     <tbody>
-		@foreach (var item in Model.Product.OrderBy(p=>p.Price))
+		@foreach (var item in Model.Product.OrderByDescending(p=>p.Price).Take(5))
 		{
 			<tr>
                 <td>@item.Name</td>
