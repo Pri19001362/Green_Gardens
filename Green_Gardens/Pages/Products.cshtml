@@ -38,6 +38,16 @@
                     <button type="submit" class="btn btn-warning">View Account</button>
                 </form>
             }
+
+        </th>
+        <th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form method="get" asp-page="/Basket">
+                    <button type="submit" class="btn btn-warning">View Basket</button>
+                </form>
+            }
+
         </th>
     </tr>
 
