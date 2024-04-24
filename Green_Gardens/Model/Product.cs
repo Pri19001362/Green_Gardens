@@ -29,5 +29,7 @@ namespace Green_Gardens.Model
         
         [Required]
         public int ExpectedStock { get; set; }
+
+        public List<Order> Orders { get; set; }
     }
 }

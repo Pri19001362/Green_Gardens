@@ -16,5 +16,22 @@ namespace Green_Gardens.Data
         {
             //The base constructor handles the options. {Connection strings and Database Provider)
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>()
+                .HasKey(cs => new { cs.ProductId, cs.CustomerId });
+
+            modelBuilder.Entity<Order>()
+                .HasOne(cs => cs.Customer)
+                .WithMany(s => s.Orders)
+                .HasForeignKey(cs => cs.CustomerId);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(cs => cs.Product)
+                .WithMany(c => c.Orders)
+                .HasForeignKey(cs => cs.ProductId);
+        }
+
     }
 }

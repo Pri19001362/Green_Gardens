@@ -29,5 +29,7 @@ namespace Green_Gardens.Model
         [Required]
         public bool IsAdmin { get; set; }
 
+        public List<Order> Orders { get; set; }
+
     }
 }
