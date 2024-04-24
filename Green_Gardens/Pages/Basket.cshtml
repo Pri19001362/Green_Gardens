@@ -12,8 +12,9 @@
 
         <tr>
             <th>OrderID</th>
-            <th>Customer</th>
-            <th>Product</th>
+            <th>Email</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
             <th></th>
         </tr>
 
@@ -24,8 +25,9 @@
         {
             <tr>
                 <td>@order.Id</td>
-                <td>@order.Customer</td>
-                <td>@order.Product</td>
+                <td>@order.Customer.Email</td>
+                <td>@order.Product.Name</td>
+                <td>@order.Product.Price</td>
             </tr>
         }
 
