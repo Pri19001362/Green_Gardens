@@ -19,12 +19,12 @@ namespace Green_Gardens.Pages
         public void OnGet(Guid id)
         {
             // Retrieve the item to be deleted
-            Customer = _dbConnection.Customer.FirstOrDefault(t => t.Id == id);
+            Customer = _dbConnection.Customer.FirstOrDefault(t => t.CustomerId == id);
         }
 
         public async Task<IActionResult> OnPostAsync(Guid id)
         {
-            var customerToDelete = _dbConnection.Customer.FirstOrDefault(t => t.Id == id);
+            var customerToDelete = _dbConnection.Customer.FirstOrDefault(t => t.CustomerId == id);
             if (customerToDelete != null)
             {
                 _dbConnection.Customer.Remove(customerToDelete);

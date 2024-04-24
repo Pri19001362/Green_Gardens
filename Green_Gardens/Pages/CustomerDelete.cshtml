@@ -8,7 +8,7 @@
 <p><strong>Email:</strong> @Model.Customer.Email</p>
 
 <form method="post">
-    <input type="hidden" asp-for="Customer.Id" />
+    <input type="hidden" asp-for="Customer.CustomerId" />
     <button type="submit" class="btn btn-danger">Delete</button>
     <a asp-page="Index" class="btn btn-secondary">Cancel</a>
 </form>

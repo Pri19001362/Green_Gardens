@@ -33,7 +33,7 @@ namespace Green_Gardens.Pages
         {
           
 
-            var itemToUpdate = await _dbConnection.Product.FindAsync(Product.Id);
+            var itemToUpdate = await _dbConnection.Product.FindAsync(Product.ProductId);
 
             if (itemToUpdate == null)
             {

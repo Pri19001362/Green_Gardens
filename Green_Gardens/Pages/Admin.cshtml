@@ -53,8 +53,8 @@
                 <td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                        <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        <a asp-page="/Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a>
+                        <a asp-page="/Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>
                     }
                 </td>
 
@@ -72,8 +72,8 @@
                 <td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a asp-page="/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                        <a asp-page="/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        <a asp-page="/Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a>
+                        <a asp-page="/Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>
                     }
                 </td>
 
@@ -142,8 +142,8 @@
                         <td>
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                             {
-                                <a asp-page="/CustomerEdit" asp-route-id="@customer.Id" class="btn btn-primary">Edit</a>
-                                <a asp-page="/CustomerDelete" asp-route-id="@customer.Id" class="btn btn-danger">Delete</a>
+                                <a asp-page="/CustomerEdit" asp-route-id="@customer.CustomerId" class="btn btn-primary">Edit</a>
+                                <a asp-page="/CustomerDelete" asp-route-id="@customer.CustomerId" class="btn btn-danger">Delete</a>
                             }
                         </td>
 
@@ -162,8 +162,8 @@
                         <td>
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                             {
-                                <a asp-page="/CustomerEdit" asp-route-id="@customer.Id" class="btn btn-primary">Edit</a>
-                                <a asp-page="/CustomerDelete" asp-route-id="@customer.Id" class="btn btn-danger">Delete</a>
+                                <a asp-page="/CustomerEdit" asp-route-id="@customer.CustomerId" class="btn btn-primary">Edit</a>
+                                <a asp-page="/CustomerDelete" asp-route-id="@customer.CustomerId" class="btn btn-danger">Delete</a>
                             }
                         </td>
                     </tr>
