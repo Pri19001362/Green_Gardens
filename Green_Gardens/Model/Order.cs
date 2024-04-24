@@ -7,10 +7,10 @@ namespace Green_Gardens.Model
         [Key]
         public Guid Id { get; set; }
 
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
 
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         public Product Product { get; set; }
         
     }
