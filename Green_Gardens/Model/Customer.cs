@@ -6,7 +6,7 @@ namespace Green_Gardens.Model
     public class Customer //will create the columns for the customer table
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid CustomerId { get; set; }
 
         [MaxLength(100)]
         [Required]

@@ -6,7 +6,7 @@ namespace Green_Gardens.Model
     public class Product
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid ProductId { get; set; }
 
         [MaxLength(100)]
         [Required]
