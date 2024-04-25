@@ -13,7 +13,7 @@ namespace Green_Gardens.Pages
         public Product Product { get; set; }
         [BindProperty]
         public string Name { get; set; }
-
+        
         public AddingProductModel(AppDbContext db, AppDbContext context)
         {
             _db = db;
