@@ -11,17 +11,30 @@
         </tr>
 
         <tr>
-            <th>OrderID</th>
-            <th>Email</th>
             <th>Product Name</th>
+            <th>Image</th>
+            <th>Product Description</th>
+            <th>Product Stock</th>
             <th>Product Price</th>
-            <th></th>
         </tr>
 
     </thead>
     <tbody>
 
-        @foreach (var order in Model.Order)
+        @foreach (var product in Model.Product)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>
+                    <img src="@product.ImagePath" alt="Product Image" style="width:200px">
+                </td>
+                <td>@product.Description</td>
+                <td>@product.Stock</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+
+        @*@foreach (var order in Model.Order)
         {
             <tr>
                 <td>@order.Id</td>
@@ -35,7 +48,7 @@
                     </div>
                 </td>
             </tr>
-        }
+        }*@
 
 
 

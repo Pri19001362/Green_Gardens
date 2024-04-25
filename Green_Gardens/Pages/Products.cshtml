@@ -76,7 +76,7 @@
                 <td>@product.Stock</td>
                 <td>@product.Price</td>
                 <td>
-                    <button type="submit" class="btn btn-danger">Buy</button>
+                    <a asp-page="/AddingProduct" asp-route-id="@product.ProductId" class="btn btn-danger">AddProduct</a>
                 </td>
             </tr>
         }

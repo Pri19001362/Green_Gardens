@@ -11,7 +11,7 @@ namespace Green_Gardens.Pages
 
         public List<Customer> Customer { get; set; }
         public List<Order> Order { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Product> Product { get; set; }
 
         public BasketModel(AppDbContext db)
         {
@@ -26,8 +26,17 @@ namespace Green_Gardens.Pages
             {
                 Customer = _db.Customer.Where(c => c.Email == email).ToList();
             }
-            Order = _db.Order.ToList();
-            Products = _db.Product.ToList();
+
+
+            Product = _db.Product.ToList();
+            var name = HttpContext.Session.GetString("Product");
+            if (!string.IsNullOrEmpty(name))
+            {
+                Product = _db.Product.Where(p => p.Name == name).ToList();
+            }
+            
         }
+
+        
     }
 }

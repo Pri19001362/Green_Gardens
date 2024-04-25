@@ -48,7 +48,7 @@ namespace Green_Gardens.Pages
                     // Add more claims as needed
                  
 
-            };
+                };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties();
@@ -60,6 +60,10 @@ namespace Green_Gardens.Pages
 
                 // Store email in session
                 HttpContext.Session.SetString("UserEmail", user.Email);
+
+                //Store CustomerId in session
+                //HttpContext.Session.SetInt32("CustomerId", user.CustomerId);
+
 
                 return RedirectToPage("Index"); // Redirect to the Index page after successful login
             }
