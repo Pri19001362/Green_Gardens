@@ -61,18 +61,19 @@ namespace Green_Gardens.Migrations
 
             modelBuilder.Entity("Green_Gardens.Model.Order", b =>
                 {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("Id");
 
-                    b.HasKey("ProductId", "CustomerId");
-
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Order");
                 });
@@ -112,31 +113,13 @@ namespace Green_Gardens.Migrations
 
             modelBuilder.Entity("Green_Gardens.Model.Order", b =>
                 {
-                    b.HasOne("Green_Gardens.Model.Customer", "Customer")
-                        .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Green_Gardens.Model.Product", "Product")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Customer");
-
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Green_Gardens.Model.Customer", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Green_Gardens.Model.Product", b =>
-                {
-                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

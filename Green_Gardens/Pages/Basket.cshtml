@@ -11,35 +11,22 @@
         </tr>
 
         <tr>
+            <th>Order ID</th>
             <th>Product Name</th>
-            <th>Image</th>
-            <th>Product Description</th>
-            <th>Product Stock</th>
+            <th>Product Descrition</th>
             <th>Product Price</th>
+
         </tr>
 
     </thead>
     <tbody>
 
-        @foreach (var product in Model.Product)
-        {
-            <tr>
-                <td>@product.Name</td>
-                <td>
-                    <img src="@product.ImagePath" alt="Product Image" style="width:200px">
-                </td>
-                <td>@product.Description</td>
-                <td>@product.Stock</td>
-                <td>@product.Price</td>
-            </tr>
-        }
-
-        @*@foreach (var order in Model.Order)
+        @foreach (var order in Model.Order)
         {
             <tr>
                 <td>@order.Id</td>
-                <td>@order.Customer.Email</td>
                 <td>@order.Product.Name</td>
+                <td>@order.Product.Description</td>
                 <td>@order.Product.Price</td>
                 <td>
                     <div class="popup" onclick="buyProduct()">
@@ -48,7 +35,7 @@
                     </div>
                 </td>
             </tr>
-        }*@
+        }
 
 
 

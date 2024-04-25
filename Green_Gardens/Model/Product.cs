@@ -30,7 +30,6 @@ namespace Green_Gardens.Model
         [Required]
         public int ExpectedStock { get; set; }
 
-        [AllowNull]
-        public List<Order>? Orders { get; set; }
+        
     }
 }

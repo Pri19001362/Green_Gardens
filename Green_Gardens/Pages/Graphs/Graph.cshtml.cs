@@ -34,8 +34,7 @@ namespace Green_Gardens.Pages.Graphs
             var customer = _dbConnection.Customer.ToList();
             CustomerJson = JsonSerializer.Serialize(customer.Select(c => new { c.FirstName, c.LastName, c.LoyaltyPoints }));
 
-            var order = _dbConnection.Order.ToList();
-            OrderJson = JsonSerializer.Serialize(order.Select(o => new { o.Id, o.CustomerId, o.ProductId }));
+            
 
             Customer = _dbConnection.Customer.ToList();
             Product = _dbConnection.Product.ToList();

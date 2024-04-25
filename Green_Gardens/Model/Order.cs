@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace Green_Gardens.Model
 {
@@ -7,11 +9,13 @@ namespace Green_Gardens.Model
         [Key]
         public Guid Id { get; set; }
 
-        public Guid CustomerId { get; set; }
-        public Customer Customer { get; set; }
-
+        [Required]
         public Guid ProductId { get; set; }
+
+        [ForeignKey("ProductId")]
         public Product Product { get; set; }
-        
+
+        public int Quantity { get; set; } = 1;
+
     }
 }
