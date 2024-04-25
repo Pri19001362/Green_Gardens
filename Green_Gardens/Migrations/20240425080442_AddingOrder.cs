@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Green_Gardens.Migrations
 {
-    public partial class AddOrder : Migration
+    public partial class AddingOrder : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
