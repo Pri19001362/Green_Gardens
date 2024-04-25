@@ -27,22 +27,11 @@
     </div>
 
     <!-- Image Field -->
-    <div class="form-group">
+    <div>
         <label>Product Image:</label>
-        <input asp-for="Product.ImagePath" class="form-control" readonly />
+        <img src="Product.ImagePath" alt="Product Image" style="width:200px">
     </div>
 
-    <!-- Current Stock Field -->
-    <div class="form-group">
-        <label>Current Stock:</label>
-        <input type="number" asp-for="Product.Stock" class="form-control" readonly />
-    </div>
-
-    <!-- Expected Stock Field -->
-    <div class="form-group">
-        <label>Expected Stock:</label>
-        <input type="number" asp-for="Product.ExpectedStock" class="form-control" readonly />
-    </div>
 
     <button type="submit" class="btn btn-danger">Buy</button>
     <a asp-page="Products" class="btn btn-secondary">Cancel</a>

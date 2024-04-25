@@ -132,7 +132,7 @@
 		var ctx = document.getElementById('Price').getContext('2d');
 		var tasksData = @Html.Raw(Model.ProductJson);
 		var tasksGraph = new Chart(ctx, {
-			type: 'polarArea',
+			type: 'line',
 			data: {
 				labels: tasksData.map(t => new String(t.Name).toString()),
 				datasets: [
