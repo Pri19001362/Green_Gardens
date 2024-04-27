@@ -176,3 +176,32 @@
 </div>
 
 
+<!--Orders table-->
+<div>
+    <h2>Orders</h2>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Quantity</th>
+            <th>Order Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Order)
+        {
+                <tr>
+                <td>@order.Id</td>
+                <td>@order.ProductId</td>
+                <td>@order.Product.Name</td>
+                <td>@order.Product.Price.ToString()</td>
+                <td>@order.Product.Stock.ToString()</td>
+                <td>@order.Quantity.ToString()</td>
+                </tr>
+        }
+    </tbody>
+</table>
