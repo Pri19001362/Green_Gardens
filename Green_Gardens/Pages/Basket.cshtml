@@ -9,7 +9,7 @@
         <tr>
             <th><h2 class="display-4">Basket</h2></th>
         </tr>
-
+        <!--shows all the orders in the basket-->
         <tr>
             <th>Order ID</th>
             <th>Product Name</th>
@@ -23,14 +23,17 @@
 
         @foreach (var order in Model.Order)
         {
+            // can show product details due to the foreign key
             <tr>
                 <td>@order.Id</td>
                 <td>@order.Product.Name</td>
                 <td>@order.Product.Description</td>
                 <td>@order.Product.Price</td>
                 <td>
+                    <!--pop up will appear due to the onclick function-->
                     <div class="popup" onclick="buyProduct()">
                         Click Here To Buy Product!!
+                        <!--what text will display on the popup-->
                         <span class="popuptext" id="Buy">Product Bought</span>
                     </div>
                 </td>
@@ -43,7 +46,7 @@
     </tbody>
 </table>
 
-
+<!--styling for the popup and text-->
 <style>
     .popup {
         position: relative;
@@ -90,6 +93,7 @@
 
 </style>
 
+<!--function for onclick-->
 <script>
     function buyProduct() {
         var popup = document.getElementById("Buy");

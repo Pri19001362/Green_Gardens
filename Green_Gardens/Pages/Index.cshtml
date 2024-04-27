@@ -6,16 +6,18 @@
     ViewData["Title"] = "Home page";
 }
 
+<!--the first page displayed when users access the website-->
 <div class="text-center">
     <h1 class="display-4">Welcome To Green Gardens</h1>
 
+    <!--button displays if the user is not logged in-->
     @if (!User.Identity.IsAuthenticated)
     {
         <form method="get" asp-page="/Login">
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     }
-
+    <!--displays once the user is logged in-->
     @if (User.Identity.IsAuthenticated)
     {
         <form method="get" asp-page="/Logout">
@@ -24,11 +26,13 @@
     }
 </div>
 
+<!--Displayed on the body of the page-->
 <h2 style="padding-top:20px; text-align:center; width:100%;">Check out our shop</h2>
 <table class="table;" style="text-align:center; width:100%;">
     <tbody>
             <tr>
                 <td>
+                    <!--images are stored in a folder to be displayed on the webiste-->
                 <img src="~/images/shop/shop.png" alt="Shop" style="width:500px;">
                 </td>
             </tr>
@@ -37,6 +41,7 @@
     <tfoot>
         <tr>
             <td>
+                <!--button will take user to the shop page-->
                 <form method="get" asp-page="/Products">
                     <button type="submit" class="btn btn-primary">Check out our shop</button>
                 </form>

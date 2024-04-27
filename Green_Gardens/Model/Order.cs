@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Green_Gardens.Model
 {
-    public class Order
+    public class Order  //will create the columns for the order table
     {
         [Key]
         public Guid Id { get; set; }
@@ -12,6 +12,7 @@ namespace Green_Gardens.Model
         [Required]
         public Guid ProductId { get; set; }
 
+        //foreign key links it to products model
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
 

@@ -26,9 +26,11 @@ namespace Green_Gardens.Pages
             
 
             // Set a breakpoint here to inspect the 'Product' object
+            // Updates the product information in the database and saves the changes
             _dbConnection.Product.Add(Products);
             _dbConnection.SaveChanges();
 
+            //returns user back to the admin page
             return RedirectToPage("Admin");
         }
     }

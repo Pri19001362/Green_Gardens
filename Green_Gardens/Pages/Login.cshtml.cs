@@ -61,9 +61,6 @@ namespace Green_Gardens.Pages
                 // Store email in session
                 HttpContext.Session.SetString("UserEmail", user.Email);
 
-                //Store CustomerId in session
-                //HttpContext.Session.SetInt32("CustomerId", user.CustomerId);
-
 
                 return RedirectToPage("Index"); // Redirect to the Index page after successful login
             }
@@ -73,6 +70,7 @@ namespace Green_Gardens.Pages
 
         private bool VerifyPassword(string providedPassword, string storedHash)
         {
+            //currently no password authentication
             return true;
         }
     }

@@ -9,6 +9,7 @@ namespace Green_Gardens.Pages
     {
         private readonly AppDbContext _db;
 
+        // Public property for a list of items. Stores the list of all customers, orders and products
         public List<Customer> Customer { get; set; }
         public List<Product> Product { get; set; }
         public List<Order> Order { get; set; }
@@ -20,6 +21,7 @@ namespace Green_Gardens.Pages
 
         public void OnGet()
         {
+            //gets all the information from database apart from customer where it gets the customer that is logged in
             Customer = _db.Customer.ToList();
             var email = HttpContext.Session.GetString("UserEmail");
             if (!string.IsNullOrEmpty(email))

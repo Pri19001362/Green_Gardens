@@ -6,6 +6,7 @@
 
 <h2>Graphs</h2>
 
+<!--Links to specific graphs due to the id-->
 <div>
 	<h3>Expected stock quantity</h3>
 	<canvas id="stockGraph"></canvas>
@@ -22,19 +23,21 @@
 </div>
 
 <div>
-	<h3>Item Price</h3>
-	<canvas id="Price"></canvas>
+	<h3>Products Ordered</h3>
+	<canvas id="Order"></canvas>
 </div>
 
 
+<!--Used for creating graphs -->
 
 @section Scripts {
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!--graph of current and expected stock -->
 	<script>
 		var ctx = document.getElementById('stockGraph').getContext('2d');
 		var tasksData = @Html.Raw(Model.ProductJson);
 		var tasksGraph = new Chart(ctx, {
-			type: 'bar',
+			type: 'bar', //type of graph
 			data: {
 				labels: tasksData.map(t => new String(t.Name).toString()),
 				datasets: [
@@ -66,12 +69,13 @@
 
 
 
-	<!--New Graph-->
+	<!--New Graph for comparing product price and stock-->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
 		var ctx = document.getElementById('ExpectedStock').getContext('2d');
 		var tasksData = @Html.Raw(Model.ProductJson);
 		var tasksGraph = new Chart(ctx, {
+			//type of graph
 			type: 'radar',
 			data: {
 				labels: tasksData.map(t => t.Name),
@@ -99,13 +103,13 @@
 		});
 	</script>
 
-	<!--New Graph-->
+	<!--New Graph showing users and their loyalty points-->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
 		var ctx = document.getElementById('LoyaltyPoints').getContext('2d');
 		var tasksData = @Html.Raw(Model.CustomerJson);
 		var tasksGraph = new Chart(ctx, {
-			type: 'doughnut',
+			type: 'doughnut', //type of graph
 			data: {
 				labels: tasksData.map(t => t.FirstName),
 				datasets: [
@@ -126,19 +130,19 @@
 		});
 	</script>
 
-	<!--New Graph-->
+	<!--New Graph showing how many products have ben ordered-->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
-		var ctx = document.getElementById('Price').getContext('2d');
-		var tasksData = @Html.Raw(Model.ProductJson);
+		var ctx = document.getElementById('Order').getContext('2d');
+		var tasksData = @Html.Raw(Model.OrderJson);
 		var tasksGraph = new Chart(ctx, {
-			type: 'line',
+			type: 'bar', //type of graph
 			data: {
 				labels: tasksData.map(t => new String(t.Name).toString()),
 				datasets: [
 					{
-						label: 'Price',
-						data: tasksData.map(t => t.Price),
+						label: 'Quantity',
+						data: tasksData.map(t => t.Quantity),
 						backgroundColor: 'rgba(100, 0, 100, 0.2)',
 						borderColor: 'rgba(100, 0, 100, 1)',
 						borderWidth: 1
@@ -178,7 +182,8 @@
         </tr>
     </thead>
     <tbody>
-		@foreach (var item in Model.Product.OrderByDescending(p=>p.Price).Take(5))
+		<!--goes through all products in the database-->
+		@foreach (var item in Model.Product.OrderByDescending(p=>p.Price).Take(5)) //displays the top 5 only
 		{
 			<tr>
                 <td>@item.Name</td>
@@ -206,7 +211,8 @@
         </tr>
     </thead>
     <tbody>
-		@foreach (var item in Model.Product.OrderBy(p=>p.Stock).Take(5))
+		<!--goes through all products in the database-->
+		@foreach (var item in Model.Product.OrderBy(p=>p.Stock).Take(5)) //displays the lowest 5
 		{
 			<tr>
                 <td>@item.Name</td>
@@ -233,6 +239,7 @@
         </tr>
     </thead>
     <tbody>
+		<!--goes through all customers in the database and only shows the ones that are customers not admins-->
 		@foreach (var item in Model.Customer.OrderByDescending(l=>l.LoyaltyPoints).Take(5).Where(n => n.IsAdmin == false ) )
 		{
 			<tr>
@@ -246,3 +253,29 @@
 	</tbody>
 </table>
 
+<div>
+	<h2>Top 5 orders by order quantity</h2>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Order Id</th>
+			<th>Product Name</th>
+			<th>Product Price</th>
+			<th>Order Quantity </th>
+		</tr>
+	</thead>
+	<tbody>
+		<!--goes through all orders in the database and shows the highest orders-->
+		@foreach (var item in Model.Order.OrderByDescending(l => l.Quantity).Take(5))
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Product.Name</td>
+				<td>@item.Product.Price.ToString()</td>
+				<td>@item.Quantity.ToString()</td>
+
+			</tr>
+		}
+	</tbody>
+</table>

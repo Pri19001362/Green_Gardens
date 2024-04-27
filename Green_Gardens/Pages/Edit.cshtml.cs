@@ -19,6 +19,7 @@ namespace Green_Gardens.Pages
 
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
+            //finds the product to be updated based on the id
             Product = await _dbConnection.Product.FindAsync(id);
 
             if (Product == null)
@@ -32,7 +33,7 @@ namespace Green_Gardens.Pages
         public async Task<IActionResult> OnPostAsync()
         {
           
-
+            //finds the product to be updated
             var itemToUpdate = await _dbConnection.Product.FindAsync(Product.ProductId);
 
             if (itemToUpdate == null)

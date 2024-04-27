@@ -19,9 +19,10 @@
 
     </thead>
     <tbody>
-        
+        <!--Checks through all customers to find the customer that is logged in-->
         @foreach (var customer in Model.Customer )
         {
+            //info that is displayed on account page
             <tr>
                 <td>@customer.FirstName</td>
                 <td>@customer.LastName</td>

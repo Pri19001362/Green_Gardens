@@ -9,9 +9,6 @@ namespace Green_Gardens.Pages
     {
         private readonly ILogger<AdminModel> _logger;
 
-        // Public property for a list of ProductModel items. This stores the list of products.
-        public List<Product> Products { get; set; }
-        public List<Customer> Customers { get; set; }
 
         private readonly AppDbContext _dbConnection;
 
@@ -23,13 +20,14 @@ namespace Green_Gardens.Pages
             _dbConnection = _db;
         }
 
-        //stores the list of tasks
+        // Public property for a list of items. Stores the list of all customers, orders and products
         public List<Customer> Customer { get; set; }
         public List<Product> Product { get; set; }
         public List<Order> Order { get; set; }
 
         public void OnGet()
         {
+            //gets the database information
             Customer = _dbConnection.Customer.ToList();
             Product = _dbConnection.Product.ToList();
             Order = _dbConnection.Order.ToList();

@@ -9,9 +9,6 @@ namespace Green_Gardens.Pages
     {
         private readonly ILogger<RedeemModel> _logger;
 
-        // Public property for a list of ProductModel items. This stores the list of products.
-        public List<Product> Products { get; set; }
-
         private readonly AppDbContext _dbConnection;
 
         //Add instance of AppDbContext
@@ -22,13 +19,14 @@ namespace Green_Gardens.Pages
             _dbConnection = _db;
         }
 
-        //stores the list of tasks
+        // Public property for a list of items. This stores the list of table data. Not neccessary for the redeem page currently
         public List<Customer> Customer { get; set; }
         public List<Product> Product { get; set; }
         public List<Order> Order { get; set; }
 
         public void OnGet()
         {
+            //gets the data from startup
             Customer = _dbConnection.Customer.ToList();
             Product = _dbConnection.Product.ToList();
             Order = _dbConnection.Order.ToList();

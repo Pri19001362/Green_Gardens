@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Green_Gardens.Model
 {
-    public class Product
+    public class Product //will create the columns for the products table
     {
         [Key]
         public Guid ProductId { get; set; }
@@ -19,6 +19,7 @@ namespace Green_Gardens.Model
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        //alloing null means image can be added manually to the database everytime it is updated
         [AllowNull]
         public string? ImagePath { get; set; }
 

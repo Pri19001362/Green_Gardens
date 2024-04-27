@@ -5,7 +5,7 @@
 }
 
 
-
+<!--displays if the user is logged in-->
 
 @if (User.Identity.IsAuthenticated)
 {
@@ -24,6 +24,7 @@
         </tr>
     </thead>
     <tbody>
+        <!--Manually added redeem rewards, for better functionality you could add a redeem table to store this-->
             <tr>
                 <td>Amazon £15 Gift Card</td>
                 <td>Use to buy items on Amazon</td>
@@ -32,6 +33,7 @@
                 </td>
                 <td>150</td>
                 <td>
+                    <!--Popup appears when clicking to redeem the reward-->
                     <div class="popup" onclick="myFunction()">
                         Redeem Reward
                         <span class="popuptext" id="myPopup">Reward Redeemed</span>
@@ -40,6 +42,7 @@
             </tr>
 
             <tr>
+                <!--New reward-->
                 <td>Tesco £5 Gift Card</td>
                 <td>Use to buy items at Tesco</td>
                 <td>
@@ -47,6 +50,7 @@
                 </td>
                 <td>50</td>
                 <td>
+                    <!--Popup appears when clicking to redeem the reward-->
                     <div class="popup" onclick="myFunction()">
                         Redeem Reward
                         <span class="popuptext" id="myPopup">Reward Redeemed</span>
@@ -54,6 +58,7 @@
                 </td>
             </tr>
 
+            <!--New reward-->
             <tr>
                 <td>Garden Apron</td>
                 <td>Fun to wear</td>
@@ -62,6 +67,7 @@
                 </td>
                 <td>25</td>
                 <td>
+                    <!--Popup appears when clicking to redeem the reward-->
                     <div class="popup" onclick="myFunction()">
                         Redeem Reward
                         <span class="popuptext" id="myPopup">Reward Redeemed</span>
@@ -69,6 +75,7 @@
                 </td>
             </tr>
 
+            <!--New reward-->
             <tr>
                 <td>Garden Gloves</td>
                 <td>Fun to wear</td>
@@ -77,6 +84,7 @@
                 </td>
                 <td>15</td>
                 <td>
+                    <!--Popup appears when clicking to redeem the reward-->
                     <div class="popup" onclick="myFunction()">
                         Redeem Reward
                         <span class="popuptext" id="myPopup">Reward Redeemed</span>
@@ -84,6 +92,7 @@
                 </td>
             </tr>
 
+            <!--New reward-->
             <tr>
                 <td>PS5</td>
                 <td>Play Games</td>
@@ -92,6 +101,7 @@
                 </td>
                 <td>100,000</td>
                 <td>
+                    <!--Popup appears when clicking to redeem the reward-->
                     <div class="popup" onclick="myFunction()">
                         Redeem Reward
                         <span class="popuptext" id="myPopup">Reward Redeemed</span>
@@ -102,8 +112,9 @@
     </tbody>
 </table>
 
-
+<!--styling for the popup functionality-->
 <style>
+    <!--initial text-->
 .popup {
   position: relative;
   display: inline-block;
@@ -114,7 +125,7 @@
   user-select: none;
   color:red;
 }
-
+<!-- before popup appears styling-->
 .popup .popuptext {
   visibility: hidden;
   width: 160px;
@@ -129,7 +140,7 @@
   left: 50%;
   margin-left: -80px;
 }
-
+<!--Styling for when popup is visible-->
 .popup .popuptext::after {
   content: "";
   position: absolute;
@@ -140,7 +151,7 @@
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
-
+<!--how the popup will appear-->
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
@@ -149,7 +160,7 @@
 
 
 </style>
-
+<!--Function occurs when clicking redeem reward-->
     <script>
         function myFunction() {
             var popup = document.getElementById("myPopup");

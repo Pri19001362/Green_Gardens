@@ -24,11 +24,14 @@ namespace Green_Gardens.Pages
 
         public async Task<IActionResult> OnPostAsync(Guid id)
         {
+            // Retrieve the item to be deleted
             var itemToDelete = _dbConnection.Product.FirstOrDefault(t => t.ProductId == id);
             if (itemToDelete != null)
             {
+                // deletes the item from the database and saves the changes so it no longer exists
                 _dbConnection.Product.Remove(itemToDelete);
                 await _dbConnection.SaveChangesAsync();
+                //takes user back to admin page once done
                 return RedirectToPage("Admin");
             }
             else

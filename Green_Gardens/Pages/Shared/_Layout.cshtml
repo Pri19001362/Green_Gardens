@@ -17,12 +17,17 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!--Will appear at the top of every page-->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
+                        <!--Navbar layout-->
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+
+                        <!--will only display if the user is an admin-->
 
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
@@ -30,18 +35,19 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Admin">Admin</a>
                             </li>
                         }
-
+                        <!--Displays all the time regardless of what user is logged in-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
 
+                        <!--will not display if the user is logged in-->
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
                             </li>
                         }
-
+                        <!--will not display if the user is logged in-->
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
@@ -49,25 +55,26 @@
                             </li>
                         }
 
-
+                        <!--will only display if the user is an admin-->
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Graphs/Graph">Graphs</a>
                             </li>
                         }
-
+                        <!--Displays all the time regardless of what user is logged in-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Products">Shop</a>
                         </li>
 
+                        <!--only displays if the user is logged in-->
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Redeem">Redeem</a>
                             </li>
                         }
-
+                        <!--Displays all the time regardless of what user is logged in-->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Blog">Blog</a>
                         </li>
@@ -82,9 +89,10 @@
             @RenderBody()
         </main>
     </div>
-
+    <!--displayed at the bottom of every page-->
     <footer class="border-top footer text-muted">
         <div class="container">
+            <!--takes the user to the privacy page-->
             &copy; 2024 - Green Gardens - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>

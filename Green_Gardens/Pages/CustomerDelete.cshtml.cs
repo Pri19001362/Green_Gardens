@@ -18,22 +18,25 @@ namespace Green_Gardens.Pages
 
         public void OnGet(Guid id)
         {
-            // Retrieve the item to be deleted
+            // Retrieve the customer to be deleted based on their id
             Customer = _dbConnection.Customer.FirstOrDefault(t => t.CustomerId == id);
         }
 
         public async Task<IActionResult> OnPostAsync(Guid id)
         {
+            //gets the customer
             var customerToDelete = _dbConnection.Customer.FirstOrDefault(t => t.CustomerId == id);
             if (customerToDelete != null)
             {
+                //removes the customer from the database and saves the changes
                 _dbConnection.Customer.Remove(customerToDelete);
                 await _dbConnection.SaveChangesAsync();
+                //returns them back to admin page 
                 return RedirectToPage("Admin");
             }
             else
             {
-                // Handle the case where the item does not exist
+                // Handle the case where the customer does not exist
                 return NotFound();
             }
         }

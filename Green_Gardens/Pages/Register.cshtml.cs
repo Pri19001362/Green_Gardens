@@ -20,7 +20,7 @@ namespace Green_Gardens.Pages
             _context = context;
         }
 
-        // GET handler to initialize any state needed for the form
+        //GET handler to initialize any state needed for the form
         public void OnGet()
         {
         }

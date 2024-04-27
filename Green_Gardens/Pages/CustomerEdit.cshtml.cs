@@ -19,10 +19,12 @@ namespace Green_Gardens.Pages
 
         public async Task<IActionResult> OnGetAsync(Guid id)
         {
+            //gets the customer based on the id
             Customer = await _dbConnection.Customer.FindAsync(id);
 
             if (Customer == null)
             {
+                //if customer does not exist
                 return NotFound();
             }
 
@@ -32,7 +34,7 @@ namespace Green_Gardens.Pages
         public async Task<IActionResult> OnPostAsync()
         {
 
-
+            //finds the customer based on the id
             var itemToUpdate = await _dbConnection.Customer.FindAsync(Customer.CustomerId);
 
             if (itemToUpdate == null)

@@ -9,6 +9,7 @@
 <div class="text-center">
     <h1 class="display-4">Welcome Admin</h1>
     <p>Create, edit and delete products</p>
+    <!--this button is only viewable if the user is an admin-->
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
         <a asp-page="Create" class="btn btn-primary"> Add Item</a>
@@ -40,9 +41,10 @@
     <tbody>
         @foreach (var item in Model.Product)
         {
-
+            //checks the current stock against the expected stock
             @if (@item.Stock < @item.ExpectedStock)
             {
+                //will appear for products that are below stock
                 <tr style="background-color:red; color:white;">
                 <td>@item.Name</td>
                 <td>@item.Description</td>
@@ -51,6 +53,7 @@
                 <td>@item.ExpectedStock.ToString()</td>
 
                 <td>
+                    <!--Only admins can edit or delete products-->
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <a asp-page="/Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a>
@@ -62,6 +65,7 @@
             }
             else
             {
+                //red alert will not display for products that have higher current stock
                 <tr>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
@@ -84,6 +88,7 @@
     </tbody>
 </table>
 
+<!--will only display products that have lower current stock-->
 <div>
     <h3>Products below current stock</h3>
 <table class="table">
@@ -98,6 +103,7 @@
     <tbody>
         @foreach (var item in Model.Product)
         {
+            //admins can view specific stock as opposed to all of them
             @if (@item.Stock < @item.ExpectedStock)
             {
                 <tr>
@@ -114,6 +120,7 @@
 </div>
 
 
+<!--displays all customers-->
 <div>
     <h3>Customers</h3>
 <table class="table">
@@ -130,6 +137,7 @@
     <tbody>
             @foreach (var customer in Model.Customer)
             {
+                //checks if th customer is an admin and highlights it
                 @if(@customer.IsAdmin == true)
                 {
                     <tr style="background-color: green;">
@@ -140,8 +148,10 @@
                         <td>@customer.IsAdmin</td>
 
                         <td>
+                            <!--User.IsInRole("Admin") is a claim that checks admin authourity-->
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                             {
+                                //only admins can edit or delet ciustomers
                                 <a asp-page="/CustomerEdit" asp-route-id="@customer.CustomerId" class="btn btn-primary">Edit</a>
                                 <a asp-page="/CustomerDelete" asp-route-id="@customer.CustomerId" class="btn btn-danger">Delete</a>
                             }
@@ -153,6 +163,7 @@
                 else
                 {
                     <tr>
+                        <!--info to be displayed-->
                         <td>@customer.FirstName</td>
                         <td>@customer.LastName</td>
                         <td>@customer.Email</td>
@@ -183,6 +194,7 @@
 <table class="table">
     <thead>
         <tr>
+            <!--order information that admins will see-->
             <th>Order Id</th>
             <th>Product Id</th>
             <th>Product Name</th>
@@ -194,6 +206,7 @@
     <tbody>
         @foreach (var order in Model.Order)
         {
+            //can display product information thanks to the foreign key in the order table
                 <tr>
                 <td>@order.Id</td>
                 <td>@order.ProductId</td>

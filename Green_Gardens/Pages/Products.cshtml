@@ -3,11 +3,12 @@
 @{
     ViewData["Title"] = "Shop";
 }
-
+<!--Shop page-->
 <table class="text-center">
     <tr>
         <th><h2 class="display-4">Shop</h2></th>
         <th>
+            <!--if the user is not logged in then the button will appear taking them to the register page-->
             @if (!User.Identity.IsAuthenticated)
             {
                 <form method="get" asp-page="/Register">
@@ -16,6 +17,7 @@
             }
         </th>
         <th>
+            <!--if the user is not logged in then the button will appear taking them to the login page-->
             @if (!User.Identity.IsAuthenticated)
             {
                 <form method="get" asp-page="/Login">
@@ -24,6 +26,7 @@
             }
         </th>
         <th>
+            <!--Will only appear if the user is logged in-->
             @if (User.Identity.IsAuthenticated)
             {
                 <form method="get" asp-page="/Logout">
@@ -32,6 +35,7 @@
             }
         </th>
         <th>
+            <!--Will only appear if the user is logged in and will take them to their account page-->
             @if (User.Identity.IsAuthenticated)
             {
                 <form method="get" asp-page="/Account">
@@ -41,6 +45,7 @@
 
         </th>
         <th>
+            <!--Will only appear if the user is logged in and take them to the basket page-->
             @if (User.Identity.IsAuthenticated)
             {
                 <form method="get" asp-page="/Basket">
@@ -56,6 +61,7 @@
 <table class="table">
     <thead>
         <tr>
+            <!--product info displayed to customers-->
             <th>Name</th>
             <th>Image</th>
             <th>Description</th>
@@ -65,17 +71,20 @@
         </tr>
     </thead>
     <tbody>
+        <!--Will show every product that exists-->
         @foreach (var product in Model.Products)
         {
             <tr>
                 <td>@product.Name</td>
                 <td>
+                    <!--Will display an image-->
                     <img src="@product.ImagePath" alt="Product Image" style="width:200px">
                 </td>
                 <td>@product.Description</td>
                 <td>@product.Stock</td>
                 <td>@product.Price</td>
                 <td>
+                    <!--pressig the button will add the product to the order table in the database-->
                     <form method="post" asp-page-handler="AddToBasket" asp-route-productId="@product.ProductId">
                     <button type="submit" class="btn btn-primary">Add to Basket</button>
                     </form>

@@ -63,7 +63,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); // Ensure this call is before UseAuthorization
+app.UseAuthentication(); // Ensure this call is before UseAuthorization, checks user authentication
 app.UseAuthorization();
 
 app.MapRazorPages();
