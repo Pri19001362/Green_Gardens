@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Green_Gardens.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240427103226_AddingOrder")]
+    [Migration("20240429075639_AddingOrder")]
     partial class AddingOrder
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

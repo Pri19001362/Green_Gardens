@@ -14,13 +14,14 @@
     <h3 style="padding-top:20px; padding-bottom:20px;">Use your loyalty points to redeem products</h3>
 </div>
 
-<table class="table;" style="text-align:center; width:100%;">
-    <thead>
+    <table class="table" style="border: 2px solid black;">
+        <thead style="background-color:#B3B3B3;">
         <tr>
             <th>Product Name</th>
             <th>Description</th>
             <th>Image</th>
             <th>Loyalty Points Needed</th>
+            <th>Redeem Reward</th>
         </tr>
     </thead>
     <tbody>
@@ -113,53 +114,51 @@
 </table>
 
 <!--styling for the popup functionality-->
-<style>
-    <!--initial text-->
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color:red;
-}
-<!-- before popup appears styling-->
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-<!--Styling for when popup is visible-->
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-<!--how the popup will appear-->
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
+    <style>
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: red;
+        }
 
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
 
-</style>
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+    </style>
 <!--Function occurs when clicking redeem reward-->
     <script>
         function myFunction() {
